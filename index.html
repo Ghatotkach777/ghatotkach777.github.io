@@ -164,7 +164,14 @@ SELECT ROUND(435.7896,3) AS round_value;
     <!-- Card 5 -->
     <div class="card">
         <h3>STRING</h3>
-        <textarea id="code5">// Paste your code here</textarea>
+        <textarea id="code5">
+1.	Select LOWER(job) from fy_emp
+2.	select concat(ename,' ', job) from fy_EMP
+3.	select SUBSTRING(job,1,5) from fy_EMP where job='SALESMAN';
+4.	select REPLACE(job,'PRESIDENT','VP') as newjobtitle from fy_EMP;
+5.	SELECT     * FROM fy_emp WHERE LENGTH(first_name) >= 8;
+6.	Select Ltrim(“   I Like SQL”) as Left_trim, Rtrim(‘I like SQL                  ’)  as RightTrim, Trim (‘     I like SQL     ’) as Trim;
+</textarea>
         <button onclick="copyCode('code5')">Copy Code</button>
     </div>
 
