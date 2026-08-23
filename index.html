@@ -3,832 +3,814 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Story of Flowers — Every Flower Has a Story</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<title>My Code Collection</title>
+
 <style>
-:root{
-  --cream:#FBF1E3;
-  --cream-2:#F5E6D3;
-  --coral:#FF6F52;
-  --coral-dark:#E5573C;
-  --peach:#FFC49B;
-  --pink:#F2A6C0;
-  --brown:#442B1E;
-  --brown-soft:#6B4A36;
-  --green:#7C8A5A;
-  --green-dark:#5C6B3E;
-  --gold:#E8A94A;
-  --cream-shadow: 4px 4px 0px var(--brown);
-  --radius-lg: 28px;
-  --radius-md: 18px;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
 }
-*{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth;}
+
 body{
-  font-family:'DM Sans', sans-serif;
-  background:var(--cream);
-  color:var(--brown);
-  overflow-x:hidden;
-}
-h1,h2,h3,.display{
-  font-family:'Fraunces', serif;
-  font-weight:700;
-  letter-spacing:-0.01em;
-}
-img,svg{display:block;}
-button{font-family:inherit; cursor:pointer; border:none;}
-a{text-decoration:none; color:inherit;}
-.wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
-
-/* ---------- Groovy background pattern ---------- */
-.groovy-bg{
-  position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;
-}
-.sunburst{
-  position:absolute;
-  width:900px; height:900px;
-  background: repeating-conic-gradient(var(--peach) 0deg 10deg, transparent 10deg 20deg);
-  border-radius:50%;
-  opacity:0.35;
+background:#0f1117;
+color:white;
+padding:40px;
 }
 
-/* ---------- Header ---------- */
-header{
-  position:sticky; top:0; z-index:100;
-  background:var(--cream);
-  border-bottom:3px solid var(--brown);
-}
-.header-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 24px;
-  max-width:1200px; margin:0 auto;
-}
-.logo{display:flex; align-items:center; gap:10px;}
-.logo-mark{width:46px; height:46px;}
-.logo-text{font-family:'Fraunces', serif; font-weight:900; font-size:22px; line-height:1; color:var(--brown);}
-.logo-text span{display:block; font-family:'DM Sans'; font-weight:500; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--coral-dark); margin-top:2px;}
-nav.main-nav{display:flex; gap:28px; font-weight:600; font-size:15px;}
-nav.main-nav a{position:relative; padding:4px 0;}
-nav.main-nav a::after{content:""; position:absolute; left:0; bottom:-2px; width:0; height:3px; background:var(--coral); border-radius:2px; transition:width .25s ease;}
-nav.main-nav a:hover::after{width:100%;}
-.header-actions{display:flex; align-items:center; gap:14px;}
-.icon-btn{
-  width:42px; height:42px; border-radius:50%;
-  background:var(--cream-2); border:2px solid var(--brown);
-  display:flex; align-items:center; justify-content:center;
-  font-size:18px; position:relative;
-  transition:transform .2s ease, background .2s ease;
-}
-.icon-btn:hover{transform:translateY(-2px) rotate(-6deg); background:var(--peach);}
-.badge{
-  position:absolute; top:-6px; right:-6px;
-  background:var(--coral); color:white; font-size:11px; font-weight:700;
-  width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  border:2px solid var(--cream);
-}
-.mobile-toggle{display:none;}
-
-/* ---------- Hero ---------- */
-.hero{
-  position:relative;
-  padding:90px 24px 70px;
-  text-align:center;
-  overflow:hidden;
-}
-.hero .sunburst{top:-350px; left:50%; transform:translateX(-50%);}
-.hero-content{position:relative; z-index:2; max-width:720px; margin:0 auto;}
-.eyebrow{
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--brown); color:var(--cream);
-  padding:8px 18px; border-radius:999px;
-  font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
-  margin-bottom:24px;
-  transform:rotate(-2deg);
-}
-.hero h1{
-  font-size:clamp(42px, 7vw, 84px);
-  line-height:0.98;
-  color:var(--brown);
-  margin-bottom:20px;
-}
-.hero h1 em{
-  font-style:italic; color:var(--coral);
-  text-decoration:underline;
-  text-decoration-color:var(--gold);
-  text-decoration-thickness:6px;
-  text-underline-offset:8px;
-}
-.hero p.sub{
-  font-size:19px; color:var(--brown-soft); max-width:520px; margin:0 auto 34px;
-  font-weight:500;
-}
-.hero-btns{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
-.btn{
-  padding:16px 30px; border-radius:999px; font-weight:700; font-size:15px;
-  border:3px solid var(--brown);
-  transition:transform .18s ease, box-shadow .18s ease;
-  display:inline-flex; align-items:center; gap:8px;
-}
-.btn-primary{background:var(--coral); color:white; box-shadow:var(--cream-shadow);}
-.btn-primary:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0px var(--brown);}
-.btn-secondary{background:var(--cream); color:var(--brown); box-shadow:var(--cream-shadow);}
-.btn-secondary:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0px var(--brown); background:var(--peach);}
-.hero-flowers{position:absolute; inset:0; z-index:1; pointer-events:none;}
-.float{position:absolute; animation:bob 6s ease-in-out infinite;}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-16px) rotate(6deg);}}
-
-/* ---------- Section shared ---------- */
-section{padding:70px 0; position:relative;}
-.section-head{text-align:center; margin-bottom:44px;}
-.section-head .kicker{color:var(--coral-dark); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; font-size:13px; margin-bottom:8px;}
-.section-head h2{font-size:clamp(30px,4vw,46px);}
-.wavy-divider{width:100%; height:36px; margin:0;}
-
-/* ---------- Categories ---------- */
-.cat-strip{
-  display:grid; grid-template-columns:repeat(5,1fr); gap:18px;
-}
-.cat-card{
-  background:var(--cream-2); border:3px solid var(--brown); border-radius:var(--radius-md);
-  padding:26px 14px; text-align:center; box-shadow:var(--cream-shadow);
-  transition:transform .2s ease, background .2s ease;
-}
-.cat-card:hover{transform:translateY(-6px) rotate(-1deg); background:var(--pink);}
-.cat-card .emoji{font-size:38px; margin-bottom:10px;}
-.cat-card .name{font-weight:700; font-size:15px;}
-
-/* ---------- Product grid ---------- */
-.prod-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
-.prod-card{
-  background:white; border:3px solid var(--brown); border-radius:var(--radius-md);
-  overflow:hidden; box-shadow:var(--cream-shadow);
-  transition:transform .2s ease, box-shadow .2s ease;
-  display:flex; flex-direction:column;
-}
-.prod-card:hover{transform:translateY(-5px); box-shadow:8px 8px 0px var(--brown);}
-.prod-media{
-  position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
-  border-bottom:3px solid var(--brown);
-}
-.prod-wish{
-  position:absolute; top:10px; right:10px; width:36px; height:36px; border-radius:50%;
-  background:white; border:2px solid var(--brown); display:flex; align-items:center; justify-content:center;
-  font-size:16px; transition:transform .15s ease;
-}
-.prod-wish.active{background:var(--coral); color:white;}
-.prod-wish:hover{transform:scale(1.1);}
-.discount-tag{
-  position:absolute; top:10px; left:10px; background:var(--brown); color:var(--cream);
-  padding:4px 10px; border-radius:999px; font-size:11px; font-weight:700;
-}
-.prod-body{padding:16px; display:flex; flex-direction:column; gap:6px; flex:1;}
-.prod-name{font-weight:700; font-size:16px; font-family:'Fraunces',serif;}
-.prod-desc{font-size:13px; color:var(--brown-soft);}
-.prod-rating{font-size:13px; color:var(--gold); font-weight:700;}
-.prod-rating span{color:var(--brown-soft); font-weight:500;}
-.prod-price{display:flex; align-items:baseline; gap:8px; margin-top:2px;}
-.price-now{font-weight:800; font-size:18px;}
-.price-old{font-size:13px; text-decoration:line-through; color:#a99889;}
-.stock{font-size:12px; font-weight:600; color:var(--green-dark);}
-.prod-actions{display:flex; gap:8px; margin-top:auto; padding-top:10px;}
-.btn-add{
-  flex:1; background:var(--brown); color:var(--cream); padding:10px; border-radius:999px;
-  font-weight:700; font-size:13px; text-align:center; transition:background .2s ease;
-}
-.btn-add:hover{background:var(--coral-dark);}
-
-/* flower media backgrounds - retro flat illustration blocks */
-.media-1{background:linear-gradient(135deg,var(--pink),var(--peach));}
-.media-2{background:linear-gradient(135deg,var(--coral),var(--gold));}
-.media-3{background:linear-gradient(135deg,var(--peach),var(--cream-2));}
-.media-4{background:linear-gradient(135deg,var(--green),var(--cream-2));}
-.media-5{background:linear-gradient(135deg,var(--gold),var(--pink));}
-.media-6{background:linear-gradient(135deg,var(--pink),var(--coral));}
-
-/* ---------- Why section ---------- */
-.why-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
-.why-card{
-  background:var(--brown); color:var(--cream); border-radius:var(--radius-md);
-  padding:24px 16px; text-align:center;
-}
-.why-card .emoji{font-size:30px; margin-bottom:10px;}
-.why-card p{font-size:13px; font-weight:600;}
-
-/* ---------- Reviews ---------- */
-.review-row{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-.review-card{
-  background:var(--cream-2); border:3px solid var(--brown); border-radius:var(--radius-md);
-  padding:22px; box-shadow:var(--cream-shadow);
-}
-.review-top{display:flex; align-items:center; gap:12px; margin-bottom:10px;}
-.avatar{
-  width:44px; height:44px; border-radius:50%; background:var(--coral); color:white;
-  display:flex; align-items:center; justify-content:center; font-weight:700; border:2px solid var(--brown);
-}
-.review-name{font-weight:700; font-size:14px;}
-.review-stars{color:var(--gold); font-size:13px;}
-.review-text{font-size:14px; color:var(--brown-soft); margin-bottom:8px;}
-.review-purch{font-size:12px; font-weight:700; color:var(--coral-dark);}
-
-/* ---------- Instagram grid ---------- */
-.insta-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:10px;}
-.insta-tile{aspect-ratio:1/1; border-radius:14px; border:3px solid var(--brown); display:flex; align-items:center; justify-content:center; font-size:26px;}
-
-/* ---------- Footer ---------- */
-footer{background:var(--brown); color:var(--cream); padding:60px 0 24px; margin-top:40px;}
-.foot-grid{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:30px; margin-bottom:40px;}
-.foot-brand p{color:#D9C3B0; font-size:14px; margin-top:10px; max-width:260px;}
-.foot-col h4{font-size:14px; margin-bottom:14px; text-transform:uppercase; letter-spacing:0.08em;}
-.foot-col a{display:block; font-size:14px; color:#D9C3B0; margin-bottom:10px;}
-.foot-col a:hover{color:var(--coral);}
-.foot-bottom{border-top:1px solid #6B4A36; padding-top:20px; text-align:center; font-size:13px; color:#B99C86;}
-
-/* ---------- Shop page ---------- */
-#shop-view{display:none;}
-.shop-head{padding:40px 0 20px; text-align:center;}
-.shop-toolbar{
-  display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
-  background:var(--cream-2); border:3px solid var(--brown); border-radius:var(--radius-md); padding:16px 20px; margin-bottom:30px;
-}
-.search-box{
-  flex:1; min-width:200px; display:flex; align-items:center; gap:8px;
-  background:white; border:2px solid var(--brown); border-radius:999px; padding:10px 16px;
-}
-.search-box input{border:none; outline:none; flex:1; font-size:14px; background:transparent;}
-.filter-pills{display:flex; gap:8px; flex-wrap:wrap;}
-.pill{
-  padding:8px 16px; border-radius:999px; border:2px solid var(--brown); background:white; font-weight:600; font-size:13px;
-  transition:all .15s ease;
-}
-.pill.active{background:var(--coral); color:white;}
-select.sort-select{
-  padding:9px 14px; border-radius:999px; border:2px solid var(--brown); background:white; font-weight:600; font-size:13px;
+h1{
+text-align:center;
+margin-bottom:40px;
+font-size:40px;
 }
 
-/* ---------- Cart drawer ---------- */
-.overlay{position:fixed; inset:0; background:rgba(68,43,30,0.5); z-index:200; display:none;}
-.drawer{
-  position:fixed; top:0; right:0; height:100%; width:420px; max-width:92vw; background:var(--cream);
-  z-index:201; transform:translateX(100%); transition:transform .3s ease;
-  display:flex; flex-direction:column; border-left:3px solid var(--brown);
-}
-.drawer.open{transform:translateX(0);}
-.drawer-head{display:flex; justify-content:space-between; align-items:center; padding:20px; border-bottom:3px solid var(--brown);}
-.drawer-body{flex:1; overflow-y:auto; padding:16px 20px;}
-.cart-item{display:flex; gap:12px; padding:14px 0; border-bottom:1px solid #e3d5c4;}
-.cart-item .thumb{width:64px; height:64px; border-radius:12px; border:2px solid var(--brown); flex-shrink:0;}
-.cart-item-info{flex:1;}
-.cart-item-name{font-weight:700; font-size:14px;}
-.cart-item-meta{font-size:12px; color:var(--brown-soft); margin:2px 0 6px;}
-.qty-row{display:flex; align-items:center; gap:10px;}
-.qty-btn{width:26px; height:26px; border-radius:50%; border:2px solid var(--brown); background:white; font-weight:700;}
-.remove-link{font-size:12px; color:var(--coral-dark); font-weight:700; margin-left:auto; cursor:pointer;}
-.drawer-foot{border-top:3px solid var(--brown); padding:20px;}
-.sum-row{display:flex; justify-content:space-between; font-size:14px; margin-bottom:8px;}
-.sum-row.total{font-weight:800; font-size:17px; margin-top:10px;}
-.close-x{width:36px; height:36px; border-radius:50%; background:var(--cream-2); border:2px solid var(--brown);}
-
-/* ---------- Product modal ---------- */
-.modal-overlay{position:fixed; inset:0; background:rgba(68,43,30,0.55); z-index:300; display:none; align-items:center; justify-content:center; padding:20px;}
-.modal{
-  background:var(--cream); border:3px solid var(--brown); border-radius:var(--radius-lg);
-  max-width:920px; width:100%; max-height:90vh; overflow-y:auto;
-  display:grid; grid-template-columns:1fr 1fr;
-}
-.modal-media{padding:26px; display:flex; align-items:center; justify-content:center; min-height:340px;}
-.modal-info{padding:26px; border-left:3px solid var(--brown);}
-.modal-close{position:absolute; top:14px; right:14px;}
-.modal-wrap{position:relative;}
-.opt-group{margin:16px 0;}
-.opt-label{font-weight:700; font-size:13px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em; color:var(--brown-soft);}
-.opt-pills{display:flex; gap:8px; flex-wrap:wrap;}
-.qty-selector{display:flex; align-items:center; gap:12px; margin:16px 0;}
-.final-price{font-size:26px; font-weight:800; margin:16px 0 10px;}
-.modal-btns{display:flex; gap:10px; margin-top:10px;}
-
-/* ---------- Builder ---------- */
-#builder-view{display:none; padding:60px 0;}
-.builder-card{
-  background:var(--cream-2); border:3px solid var(--brown); border-radius:var(--radius-lg); padding:40px;
-  max-width:760px; margin:0 auto;
-}
-.builder-group{margin-bottom:28px;}
-.builder-group label.opt-label{font-size:14px;}
-.builder-summary{
-  background:var(--brown); color:var(--cream); border-radius:var(--radius-md); padding:24px; margin-top:20px;
+.container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+gap:25px;
 }
 
-.back-link{display:inline-flex; align-items:center; gap:6px; font-weight:700; margin-bottom:20px; color:var(--coral-dark);}
+.card{
+background:#181c25;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(0,0,0,.4);
+}
 
-@media (max-width:900px){
-  .cat-strip{grid-template-columns:repeat(3,1fr);}
-  .prod-grid{grid-template-columns:repeat(2,1fr);}
-  .why-grid{grid-template-columns:repeat(2,1fr); gap:14px;}
-  .review-row{grid-template-columns:1fr;}
-  .insta-grid{grid-template-columns:repeat(3,1fr);}
-  .foot-grid{grid-template-columns:1fr 1fr;}
-  nav.main-nav{display:none;}
-  .modal{grid-template-columns:1fr;}
+.header{
+background:#232938;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.header h2{
+font-size:20px;
+}
+
+button{
+background:#4cafef;
+border:none;
+color:white;
+padding:8px 18px;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#3298e6;
+}
+
+pre{
+padding:20px;
+overflow:auto;
+font-size:14px;
+line-height:1.6;
+background:#11151d;
+color:#7fffd4;
+}
+
+::-webkit-scrollbar{
+width:8px;
+height:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#555;
+border-radius:20px;
 }
 </style>
 </head>
+
 <body>
 
-<!-- ============ HEADER ============ -->
-<header>
-  <div class="header-inner">
-    <a class="logo" href="#" onclick="showHome();return false;">
-      <svg class="logo-mark" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="48" fill="#FF6F52" stroke="#442B1E" stroke-width="4"/>
-        <g fill="#FBF1E3">
-          <circle cx="50" cy="30" r="13"/>
-          <circle cx="50" cy="70" r="13"/>
-          <circle cx="30" cy="50" r="13"/>
-          <circle cx="70" cy="50" r="13"/>
-        </g>
-        <circle cx="50" cy="50" r="12" fill="#E8A94A" stroke="#442B1E" stroke-width="3"/>
-      </svg>
-      <div class="logo-text">Story of<br>Flowers<span>Every flower has a story</span></div>
-    </a>
-    <nav class="main-nav">
-      <a href="#" onclick="showHome();return false;">Home</a>
-      <a href="#" onclick="showShop();return false;">Shop</a>
-      <a href="#" onclick="showBuilder();return false;">Build Your Own</a>
-      <a href="#track">Track Order</a>
-      <a href="#" onclick="showShop();return false;">Occasions</a>
-    </nav>
-    <div class="header-actions">
-      <button class="icon-btn" title="Account">👤</button>
-      <button class="icon-btn" id="wishBtn" title="Wishlist">🤍<span class="badge" id="wishCount">0</span></button>
-      <button class="icon-btn" id="cartBtn" title="Cart" onclick="openCart()">🧺<span class="badge" id="cartCount">0</span></button>
-    </div>
-  </div>
-</header>
+<h1>💻 My Programming Codes</h1>
 
-<!-- ============ HOME VIEW ============ -->
-<div id="home-view">
+<div class="container">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="groovy-bg"><div class="sunburst"></div></div>
-    <div class="hero-flowers">
-      <div class="float" style="top:14%; left:6%; font-size:54px; animation-delay:0s;">🌼</div>
-      <div class="float" style="top:20%; right:8%; font-size:48px; animation-delay:1s;">🌸</div>
-      <div class="float" style="bottom:10%; left:10%; font-size:44px; animation-delay:2s;">🌷</div>
-      <div class="float" style="bottom:16%; right:12%; font-size:50px; animation-delay:1.5s;">🌻</div>
-    </div>
-    <div class="hero-content">
-      <div class="eyebrow">✿ Fresh drops every week ✿</div>
-      <h1>Every Flower <br>Has an <em>Story.</em></h1>
-      <p class="sub">Beautiful bouquets for birthdays, dates, surprises, and all the little moments in between — made for college budgets, not corporate ones.</p>
-      <div class="hero-btns">
-        <button class="btn btn-primary" onclick="showShop()">Shop Bouquets →</button>
-        <button class="btn btn-secondary" onclick="showBuilder()">Create Your Own 🌱</button>
-      </div>
-    </div>
-  </section>
+<!-- Code 1 -->
+<div class="card">
+<div class="header">
+<h2>maximum and minimum</h2>
+<button onclick="copyCode('code1')">Copy</button>
+</div>
+<pre id="code1">
+<pre id="code1">
+n=int(input("enter the number of elements:"))
+if n&lt;=0:
+    print("please enter a positive number of elements")
+else:
+    A=[]
+    print("enter",n,"numbers:")
+    for i in range(n):
+        num=int(input())
+        A.append(num)
 
-  <!-- CATEGORIES -->
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Pick your vibe</div>
-        <h2>Shop by Category</h2>
-      </div>
-      <div class="cat-strip">
-        <div class="cat-card" onclick="showShop()"><div class="emoji">🌹</div><div class="name">Roses</div></div>
-        <div class="cat-card" onclick="showShop()"><div class="emoji">💐</div><div class="name">Mini Bouquets</div></div>
-        <div class="cat-card" onclick="showShop()"><div class="emoji">🌸</div><div class="name">Mixed Flowers</div></div>
-        <div class="cat-card" onclick="showShop()"><div class="emoji">🎁</div><div class="name">Gift Combos</div></div>
-        <div class="cat-card" onclick="showBuilder()"><div class="emoji">💌</div><div class="name">Custom Bouquets</div></div>
-      </div>
-    </div>
-  </section>
+    maximum=A[0]
+    minimum=A[0]
 
-  <!-- BEST SELLERS -->
-  <section style="background:var(--cream-2);">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Crowd favorites</div>
-        <h2>Best Sellers</h2>
-      </div>
-      <div class="prod-grid" id="bestSellerGrid"></div>
-    </div>
-  </section>
+    for i in range(1,n):
+        if A[i]&gt;maximum:
+            maximum=A[i]
+        if A[i]&lt;minimum:
+            minimum=A[i]
 
-  <!-- WHY -->
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Why us</div>
-        <h2>Why Story of Flowers</h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-card"><div class="emoji">🪙</div><p>Affordable for students</p></div>
-        <div class="why-card"><div class="emoji">🌿</div><p>Fresh flowers, cut daily</p></div>
-        <div class="why-card"><div class="emoji">💛</div><p>Made with love</p></div>
-        <div class="why-card"><div class="emoji">✍️</div><p>Fully custom bouquets</p></div>
-        <div class="why-card"><div class="emoji">⚡</div><p>Easy, fast ordering</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section style="background:var(--cream-2);">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Kind words</div>
-        <h2>What Customers Say</h2>
-      </div>
-      <div class="review-row">
-        <div class="review-card">
-          <div class="review-top"><div class="avatar">A</div><div><div class="review-name">Ananya R.</div><div class="review-stars">★★★★★</div></div></div>
-          <p class="review-text">Ordered for my roommate's birthday and it showed up looking exactly like the photo. So fresh!</p>
-          <div class="review-purch">Purchased: Sunset Rose Bunch</div>
-        </div>
-        <div class="review-card">
-          <div class="review-top"><div class="avatar">K</div><div><div class="review-name">Kabir S.</div><div class="review-stars">★★★★★</div></div></div>
-          <p class="review-text">The custom builder is so fun — picked my girlfriend's favorite colors and it turned out perfect.</p>
-          <div class="review-purch">Purchased: Build Your Own</div>
-        </div>
-        <div class="review-card">
-          <div class="review-top"><div class="avatar">M</div><div><div class="review-name">Meher P.</div><div class="review-stars">★★★★☆</div></div></div>
-          <p class="review-text">Cute packaging, great price for a hostel budget. Will order again for sure.</p>
-          <div class="review-purch">Purchased: Mini Daisy Jar</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INSTAGRAM -->
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">@storyofflowers</div>
-        <h2>Follow the Story</h2>
-      </div>
-      <div class="insta-grid">
-        <div class="insta-tile media-1">🌷</div>
-        <div class="insta-tile media-2">🌻</div>
-        <div class="insta-tile media-3">🌼</div>
-        <div class="insta-tile media-4">🌿</div>
-        <div class="insta-tile media-5">🌹</div>
-        <div class="insta-tile media-6">💐</div>
-      </div>
-    </div>
-  </section>
+    print("maximum number is:",maximum)
+    print("minimum number is:",minimum)
+</pre>
+</pre>
 </div>
 
-<!-- ============ SHOP VIEW ============ -->
-<div id="shop-view">
-  <div class="wrap">
-    <div class="shop-head">
-      <a href="#" class="back-link" onclick="showHome();return false;">← Back home</a>
-      <h2 class="display" style="font-size:38px;">Shop All Bouquets</h2>
-    </div>
-    <div class="shop-toolbar">
-      <div class="search-box">🔍<input type="text" id="searchInput" placeholder="Search bouquets, colors, occasions…" oninput="renderShop()"></div>
-      <div class="filter-pills" id="catPills"></div>
-      <select class="sort-select" id="sortSelect" onchange="renderShop()">
-        <option value="popular">Sort: Popular</option>
-        <option value="low">Price: Low to High</option>
-        <option value="high">Price: High to Low</option>
-        <option value="rating">Highest Rated</option>
-        <option value="new">New Arrivals</option>
-      </select>
-    </div>
-    <div class="prod-grid" id="shopGrid"></div>
-  </div>
+<!-- Code 2 -->
+<div class="card">
+<div class="header">
+<h2>average of numbers</h2>
+<button onclick="copyCode('code2')">Copy</button>
+</div>
+<pre id="code2">
+n=int(input("enter the number of elements:"))
+if n<=0:
+    print("please enter a positive number of elements")
+else:
+    arr=[]
+    sum=0
+
+    print("enter",n,"number:")
+    for i in range(n):
+        num=int(input())
+        arr.append(num)
+        sum=sum+num
+
+    average=sum/n
+    print("average of number is:",average)
+</pre>
 </div>
 
-<!-- ============ BUILDER VIEW ============ -->
-<div id="builder-view">
-  <div class="wrap">
-    <a href="#" class="back-link" onclick="showHome();return false;">← Back home</a>
-    <div class="section-head">
-      <div class="kicker">Design it yourself</div>
-      <h2>Build Your Own Bouquet</h2>
-    </div>
-    <div class="builder-card">
-      <div class="builder-group">
-        <div class="opt-label">Budget</div>
-        <div class="opt-pills" id="b-budget"></div>
-      </div>
-      <div class="builder-group">
-        <div class="opt-label">Flower Preference</div>
-        <div class="opt-pills" id="b-flower"></div>
-      </div>
-      <div class="builder-group">
-        <div class="opt-label">Color Preference</div>
-        <div class="opt-pills" id="b-color"></div>
-      </div>
-      <div class="builder-group">
-        <div class="opt-label">Occasion</div>
-        <div class="opt-pills" id="b-occasion"></div>
-      </div>
-      <div class="builder-group">
-        <div class="opt-label">Anything else? (optional)</div>
-        <textarea id="b-notes" rows="3" style="width:100%; border:2px solid var(--brown); border-radius:14px; padding:12px; font-family:inherit; font-size:14px;" placeholder="e.g. she loves sunflowers and the color yellow..."></textarea>
-      </div>
-      <div class="builder-summary" id="builderSummary">Pick your options above to see a live summary of your custom bouquet request.</div>
-      <button class="btn btn-primary" style="margin-top:20px; width:100%; justify-content:center;" onclick="submitBuilder()">Submit Custom Request 🌼</button>
-    </div>
-  </div>
+<!-- Code 3 -->
+<div class="card">
+<div class="header">
+<h2>addition of two matrix</h2>
+<button onclick="copyCode('code3')">Copy</button>
+</div>
+<pre id="code3">
+m=int(input("enter number of rows(m):"))
+n=int(input("enter number of columns(n):"))
+
+if m<=0 or n<=0:
+    print("please enter positive values for rows and columns")
+else:
+    matrix1=[]
+    matrix2=[]
+    result=[]
+
+    print("enter elements of first matrix:")
+
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            element=int(input())
+            row.append(element)
+        matrix1.append(row)
+
+    print("enter elements of second matrix:")
+
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            element=int(input())
+            row.append(element)
+        matrix2.append(row)
+
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            row.append(matrix1[i][j]+matrix2[i][j])
+        result.append(row)
+
+    print("addition of two matrices is:")
+
+    for i in range(m):
+        for j in range(n):
+            print(result[i][j], end=" ")
+        print()
+
+</pre>
 </div>
 
-<!-- ============ CART DRAWER ============ -->
-<div class="overlay" id="overlay" onclick="closeAllOverlays()"></div>
-<div class="drawer" id="cartDrawer">
-  <div class="drawer-head">
-    <h3 style="font-size:20px;">Your Cart</h3>
-    <button class="close-x" onclick="closeCart()">✕</button>
-  </div>
-  <div class="drawer-body" id="cartBody"></div>
-  <div class="drawer-foot">
-    <div class="sum-row"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
-    <div class="sum-row"><span>Delivery</span><span id="cartDelivery">₹49</span></div>
-    <div class="sum-row total"><span>Total</span><span id="cartTotal">₹0</span></div>
-    <button class="btn btn-primary" style="width:100%; justify-content:center; margin-top:12px;">Proceed to Checkout →</button>
-  </div>
+<!-- Code 4 -->
+<div class="card">
+<div class="header">
+<h2>transpose of matrix</h2>
+<button onclick="copyCode('code4')">Copy</button>
+</div>
+<pre id="code4">
+m=int(input("enter number of rows(m):"))
+n=int(input("enter number of columns(n):"))
+
+if m<=0 or n<=0:
+    print("please enter positive values for rows and columns")
+else:
+    matrix=[]
+
+    print("enter matrix elements:")
+
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            element=int(input())
+            row.append(element)
+        matrix.append(row)
+
+    print("original matrix:")
+
+    for i in range(m):
+        for j in range(n):
+            print(matrix[i][j], end=" ")
+        print()
+
+    print("transpose of matrix:")
+
+    for j in range(n):
+        for i in range(m):
+            print(matrix[i][j], end=" ")
+        print()
+
+</pre>
 </div>
 
-<!-- ============ PRODUCT MODAL ============ -->
-<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
-  <div class="modal-wrap">
-    <button class="icon-btn modal-close" onclick="closeModal()">✕</button>
-    <div class="modal" id="modalContent"></div>
-  </div>
+<!-- Code 5 -->
+<div class="card">
+<div class="header">
+<h2>push,pop,display,quit</h2>
+<button onclick="copyCode('code5')">Copy</button>
+</div>
+<pre id="code5">
+maxsize=int(input("enter max size:"))
+
+if maxsize<=0:
+    print("please enter a positive value")
+else:
+    Stack=[]
+
+    def Push():
+        if len(Stack)>=maxsize:
+            print("stack overflow")
+        else:
+            x=int(input("enter element:"))
+            Stack.append(x)
+            print("element inserted")
+
+    def Pop():
+        if len(Stack)==0:
+            print("stack underflow")
+        else:
+            x=Stack.pop()
+            print("element popped is",x)
+
+    def Peek():
+        if len(Stack)==0:
+            print("empty stack")
+        else:
+            print("top element is",Stack[-1])
+
+    def Display():
+        if len(Stack)==0:
+            print("empty stack")
+        else:
+            print("stack elements are:")
+            for i in range(len(Stack)-1,-1,-1):
+                print(Stack[i])
+
+    while True:
+        print("\n--- Stack Menu ---")
+        print("1. Push")
+        print("2. Pop")
+        print("3. Peek")
+        print("4. Display")
+        print("5. Quit")
+
+        ch=int(input("enter choice:"))
+
+        if ch==1:
+            Push()
+        elif ch==2:
+            Pop()
+        elif ch==3:
+            Peek()
+        elif ch==4:
+            Display()
+        elif ch==5:
+            print("program exited")
+            break
+        else:
+            print("invalid choice")
+
+</pre>
 </div>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="logo-text" style="color:var(--cream);">Story of<br>Flowers</div>
-        <p>Affordable, playful bouquets made for every little moment. Mumbai, with love.</p>
-      </div>
-      <div class="foot-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Contact</a><a href="#">Instagram</a></div>
-      <div class="foot-col"><h4>Help</h4><a href="#">FAQ</a><a href="#">Delivery Info</a><a href="#track">Track Order</a></div>
-      <div class="foot-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy Policy</a></div>
+<!-- Code 6 -->
+<div class="card">
+<div class="header">
+<h2>factorial of given number</h2>
+<button onclick="copyCode('code6')">Copy</button>
+</div>
+<pre id="code6">
+def factorial(n):
+    if n==1 or n==0:
+        return 1
+    else:
+        return n*factorial(n-1)
+
+num=int(input("enter a number:"))
+
+if num<0:
+    print("enter valid number")
+else:
+    print("factorial:",factorial(num))
+</pre>
+</div>
+
+<!-- Code 7 -->
+<div class="card">
+<div class="header">
+<h2>fibonnaci series</h2>
+<button onclick="copyCode('code7')">Copy</button>
+</div>
+<pre id="code7">
+def fibonacci(n):
+    if n<=1:
+        return n
+    else:
+        return fibonacci(n-1)+fibonacci(n-2)
+
+n=int(input("enter number of terms:"))
+
+if n<0:
+    print("enter positive number")
+elif n==0:
+    print("enter greater number than zero")
+else:
+    print("fibonacci series:")
+    for i in range(n):
+        print(fibonacci(i), end=" ")
+
+</pre>
+</div>
+
+<!-- Code 8 -->
+<div class="card">
+<div class="header">
+<h2>linear queue</h2>
+<button onclick="copyCode('code8')">Copy</button>
+</div>
+<pre id="code8">
+maxsize=int(input("enter queue size:"))
+
+if maxsize<=0:
+    print("invalid queue size")
+else:
+    q=[0]*maxsize
+    f=0
+    r=0
+
+    def insert():
+        global r
+        if r==maxsize:
+            print("queue full")
+        else:
+            x=int(input("enter element:"))
+            q[r]=x
+            r=r+1
+
+    def delete():
+        global f
+        if f==r:
+            print("queue empty")
+        else:
+            print("deleted element =",q[f])
+            f=f+1
+
+    def display():
+        if f==r:
+            print("queue empty")
+        else:
+            print("queue elements are:")
+            for i in range(f,r):
+                print(q[i],end=" ")
+            print()
+
+    while True:
+        print("\n1. Insert")
+        print("2. Delete")
+        print("3. Display")
+        print("4. Quit")
+
+        ch=int(input("enter choice:"))
+
+        if ch==1:
+            insert()
+        elif ch==2:
+            delete()
+        elif ch==3:
+            display()
+        elif ch==4:
+            print("program exited")
+            break
+        else:
+            print("invalid choice")
+
+</pre>
+</div>
+
+<!-- Code 9 -->
+<div class="card">
+<div class="header">
+<h2>circular queue</h2>
+<button onclick="copyCode('code9')">Copy</button>
+</div>
+<pre id="code9">
+maxsize=int(input("enter queue size:"))
+
+if maxsize<=0:
+    print("invalid queue size")
+else:
+    q=[0]*maxsize
+    f=-1
+    r=-1
+
+    def insert():
+        global f,r
+        if (r+1)%maxsize==f:
+            print("queue full")
+        else:
+            x=int(input("enter element:"))
+            if f==-1:
+                f=0
+                r=0
+            else:
+                r=(r+1)%maxsize
+            q[r]=x
+
+    def delete():
+        global f,r
+        if f==-1:
+            print("queue empty")
+        else:
+            print("deleted element =",q[f])
+            if f==r:
+                f=-1
+                r=-1
+            else:
+                f=(f+1)%maxsize
+
+    def display():
+        if f==-1:
+            print("queue empty")
+        else:
+            print("queue elements are:")
+            i=f
+            while True:
+                print(q[i],end=" ")
+                if i==r:
+                    break
+                i=(i+1)%maxsize
+            print()
+
+    while True:
+        print("\n1. Insert")
+        print("2. Delete")
+        print("3. Display")
+        print("4. Quit")
+
+        ch=int(input("enter choice:"))
+
+        if ch==1:
+            insert()
+        elif ch==2:
+            delete()
+        elif ch==3:
+            display()
+        elif ch==4:
+            print("program exited")
+            break
+        else:
+            print("invalid choice")
+
+</pre>
+</div>
+
+<!-- Code 10 -->
+<div class="card">
+<div class="header">
+<h2>Linked list prepend </h2>
+<button onclick="copyCode('code10')">Copy</button>
+</div>
+<pre id="code10">
+class linkedlist:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+head=None
+
+def prepend(element):
+    global head
+
+    newnode=linkedlist(element)
+
+    if head==None:
+        head=newnode
+    else:
+        newnode.next=head
+        head=newnode
+
+def del1():
+    global head
+
+    if head==None:
+        print("List Empty")
+    else:
+        temp=head
+        head=temp.next
+        temp.next=None
+        print("First Node Deleted")
+
+def display():
+    global head
+
+    if head==None:
+        print("List Empty")
+    else:
+        temp=head
+        while temp.next!=None:
+            print(temp.data,end=" -> ")
+            temp=temp.next
+        print(temp.data)
+
+while True:
+    print("\n1.Prepend")
+    print("2.Deletion of First Node")
+    print("3.Display")
+    print("4.Quit")
+
+    ch=int(input("Enter Choice : "))
+
+    if ch==1:
+        element=int(input("Enter element : "))
+        prepend(element)
+
+    elif ch==2:
+        del1()
+
+    elif ch==3:
+        display()
+
+    elif ch==4:
+        break
+
+    else:
+        print("Invalid Choice")
+</pre>
+</div>
+
+<!-- Code 11 -->
+<div class="card">
+    <div class="header">
+        <h2>doubly linked list</h2>
+        <button onclick="copyCode('code11')">Copy</button>
     </div>
-    <div class="foot-bottom">© 2026 Story of Flowers. Every flower has a story.</div>
-  </div>
-</footer>
 
+    <pre id="code11">class doubly:
+    def __init__(self, value):
+        self.data = value
+        self.next = None
+        self.prev = None
+
+
+head = None
+
+
+def insert():
+    global head
+
+    value = int(input("Enter Value : "))
+    newnode = doubly(value)
+
+    if head == None:
+        head = newnode
+    else:
+        temp = head
+
+        while temp.next != None:
+            temp = temp.next
+
+        temp.next = newnode
+        newnode.prev = temp
+
+    print("Node Inserted")
+
+
+def delete():
+    global head
+
+    if head == None:
+        print("List Underflow")
+    else:
+        temp = head
+        head = head.next
+
+        if head != None:
+            head.prev = None
+
+        temp.next = None
+
+        print("First Node Deleted")
+
+
+def display():
+    global head
+
+    temp = head
+
+    if temp == None:
+        print("List Empty")
+    else:
+        while temp.next != None:
+            print(temp.data, end=" &lt;-&gt; ")
+            temp = temp.next
+
+        print(temp.data)
+
+
+def displayR():
+    global head
+
+    temp = head
+
+    if temp == None:
+        print("List Empty")
+    else:
+        while temp.next != None:
+            temp = temp.next
+
+        while temp.prev != None:
+            print(temp.data, end=" &lt;-&gt; ")
+            temp = temp.prev
+
+        print(temp.data)
+
+
+def search():
+    global head
+
+    if head == None:
+        print("List Empty")
+        return
+
+    value = int(input("Enter Value to Search : "))
+
+    temp = head
+    pos = 1
+
+    while temp != None:
+        if temp.data == value:
+            print("Element Found at Position", pos)
+            return
+
+        temp = temp.next
+        pos += 1
+
+    print("Element Not Found")
+
+
+while True:
+    print("\n1.Insert")
+    print("2.Delete")
+    print("3.Display")
+    print("4.Display Reverse")
+    print("5.Search")
+    print("6.Quit")
+
+    ch = int(input("Enter Choice : "))
+
+    if ch == 1:
+        insert()
+
+    elif ch == 2:
+        delete()
+
+    elif ch == 3:
+        display()
+
+    elif ch == 4:
+        displayR()
+
+    elif ch == 5:
+        search()
+
+    elif ch == 6:
+        print("Program Terminated")
+        break
+
+    else:
+        print("Invalid Choice")</pre>
+</div>
+<!-- Code 12 -->
+<div class="card">
+    <div class="header">
+        <h2>stack linked list</h2>
+        <button onclick="copyCode('code12')">Copy</button>
+    </div>
+
+    <pre id="code12">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class Stack:
+    def __init__(self):
+        self.top = None
+
+    def push(self, data):
+        new_node = Node(data)
+        new_node.next = self.top
+        self.top = new_node
+        print(data, "pushed into stack")
+
+    def pop(self):
+        if self.top is None:
+            print("Stack Underflow")
+            return
+
+        temp = self.top
+        self.top = self.top.next
+        print("Popped element:", temp.data)
+
+    def peek(self):
+        if self.top is None:
+            print("Stack is empty")
+        else:
+            print("Top element:", self.top.data)
+
+    def display(self):
+        if self.top is None:
+            print("Stack is empty")
+            return
+
+        temp = self.top
+        print("Stack elements:")
+
+        while temp:
+            print(temp.data, end=" ")
+            temp = temp.next
+
+        print()
+
+
+stack = Stack()
+
+while True:
+    print("\n1. Push")
+    print("2. Pop")
+    print("3. Peek")
+    print("4. Display")
+    print("5. Quit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        data = int(input("Enter element: "))
+        stack.push(data)
+
+    elif choice == 2:
+        stack.pop()
+
+    elif choice == 3:
+        stack.peek()
+
+    elif choice == 4:
+        stack.display()
+
+    elif choice == 5:
+        print("Program terminated.")
+        break
+
+    else:
+        print("Invalid choice")</pre>
+</div>
 <script>
-/* ================= DATA (mock catalog — replace with API data) ================= */
-const PRODUCTS = [
-  {id:1, name:"Sunset Rose Bunch", cat:"Roses", desc:"12 peach-red roses, kraft wrap", price:449, old:599, rating:4.8, reviews:132, stock:true, media:"media-1", emoji:"🌹", tags:["popular"], added:"2026-06-01"},
-  {id:2, name:"Mini Daisy Jar", cat:"Mini Bouquets", desc:"Cheerful daisies in a mini jar", price:249, old:0, rating:4.6, reviews:88, stock:true, media:"media-3", emoji:"🌼", tags:["popular"], added:"2026-07-10"},
-  {id:3, name:"Groovy Mixed Basket", cat:"Mixed Flowers", desc:"Retro mix of gerberas & carnations", price:399, old:479, rating:4.7, reviews:64, stock:true, media:"media-4", emoji:"🌸", tags:[], added:"2026-05-20"},
-  {id:4, name:"Just Because Combo", cat:"Gift Combos", desc:"Bouquet + chocolates + card", price:599, old:699, rating:4.9, reviews:201, stock:true, media:"media-5", emoji:"🎁", tags:["popular"], added:"2026-04-11"},
-  {id:5, name:"Sunflower Pop", cat:"Mixed Flowers", desc:"3 sunflowers, statement wrap", price:299, old:0, rating:4.5, reviews:47, stock:true, media:"media-2", emoji:"🌻", tags:[], added:"2026-08-01"},
-  {id:6, name:"Blush Tulip Trio", cat:"Roses", desc:"Pastel tulips, twine tied", price:349, old:399, rating:4.6, reviews:59, stock:false, media:"media-6", emoji:"🌷", tags:[], added:"2026-03-15"},
-  {id:7, name:"Anniversary Deluxe", cat:"Gift Combos", desc:"24 roses + teddy + message card", price:899, old:1099, rating:4.9, reviews:176, stock:true, media:"media-1", emoji:"💐", tags:["popular"], added:"2026-02-14"},
-  {id:8, name:"Write Your Story", cat:"Custom Bouquets", desc:"Fully custom — you choose it all", price:199, old:0, rating:5.0, reviews:23, stock:true, media:"media-5", emoji:"💌", tags:["new"], added:"2026-08-12"},
-];
-const CATEGORIES = ["All","Roses","Mini Bouquets","Mixed Flowers","Gift Combos","Custom Bouquets"];
-
-let cart = [];
-let wishlist = new Set();
-let activeCat = "All";
-
-/* ================= RENDER HELPERS ================= */
-function money(n){ return "₹" + n.toLocaleString("en-IN"); }
-
-function productCard(p){
-  return `
-  <div class="prod-card">
-    <div class="prod-media ${p.media}" onclick="openProduct(${p.id})" style="cursor:pointer; font-size:64px;">
-      ${p.old ? `<div class="discount-tag">${Math.round((1-p.price/p.old)*100)}% OFF</div>` : ''}
-      <button class="prod-wish ${wishlist.has(p.id)?'active':''}" onclick="event.stopPropagation(); toggleWish(${p.id})">${wishlist.has(p.id)?'❤️':'🤍'}</button>
-      ${p.emoji}
-    </div>
-    <div class="prod-body">
-      <div class="prod-name" onclick="openProduct(${p.id})" style="cursor:pointer;">${p.name}</div>
-      <div class="prod-desc">${p.desc}</div>
-      <div class="prod-rating">★ ${p.rating} <span>(${p.reviews} reviews)</span></div>
-      <div class="prod-price"><span class="price-now">${money(p.price)}</span>${p.old?`<span class="price-old">${money(p.old)}</span>`:''}</div>
-      <div class="stock">${p.stock?'✓ In stock':'✕ Out of stock'}</div>
-      <div class="prod-actions">
-        <button class="btn-add" ${p.stock?'':'disabled style="opacity:.5;"'} onclick="addToCart(${p.id})">Add to Cart</button>
-      </div>
-    </div>
-  </div>`;
+function copyCode(id){
+let text=document.getElementById(id).innerText;
+navigator.clipboard.writeText(text);
+alert("Copied!");
 }
-
-function renderBestSellers(){
-  const best = PRODUCTS.filter(p=>p.tags.includes("popular"));
-  document.getElementById('bestSellerGrid').innerHTML = best.map(productCard).join('');
-}
-
-function renderCatPills(){
-  document.getElementById('catPills').innerHTML = CATEGORIES.map(c=>
-    `<button class="pill ${c===activeCat?'active':''}" onclick="setCat('${c}')">${c}</button>`
-  ).join('');
-}
-function setCat(c){ activeCat=c; renderShop(); }
-
-function renderShop(){
-  renderCatPills();
-  const q = (document.getElementById('searchInput')?.value || "").toLowerCase();
-  const sort = document.getElementById('sortSelect')?.value || "popular";
-  let list = PRODUCTS.filter(p =>
-    (activeCat==="All" || p.cat===activeCat) &&
-    (p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q))
-  );
-  if(sort==="low") list.sort((a,b)=>a.price-b.price);
-  else if(sort==="high") list.sort((a,b)=>b.price-a.price);
-  else if(sort==="rating") list.sort((a,b)=>b.rating-a.rating);
-  else if(sort==="new") list.sort((a,b)=>new Date(b.added)-new Date(a.added));
-  else list.sort((a,b)=>b.reviews-a.reviews);
-  document.getElementById('shopGrid').innerHTML = list.length ? list.map(productCard).join('') : `<p style="grid-column:1/-1; text-align:center; color:var(--brown-soft); padding:40px 0;">No bouquets match — try another search or filter 🌱</p>`;
-}
-
-/* ================= VIEW SWITCHING ================= */
-function showHome(){
-  document.getElementById('home-view').style.display='block';
-  document.getElementById('shop-view').style.display='none';
-  document.getElementById('builder-view').style.display='none';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function showShop(){
-  document.getElementById('home-view').style.display='none';
-  document.getElementById('shop-view').style.display='block';
-  document.getElementById('builder-view').style.display='none';
-  renderShop();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function showBuilder(){
-  document.getElementById('home-view').style.display='none';
-  document.getElementById('shop-view').style.display='none';
-  document.getElementById('builder-view').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-/* ================= CART ================= */
-function addToCart(id, opts){
-  const p = PRODUCTS.find(x=>x.id===id);
-  if(!p || !p.stock) return;
-  const existing = cart.find(c=>c.id===id && JSON.stringify(c.opts||{})===JSON.stringify(opts||{}));
-  if(existing){ existing.qty++; }
-  else cart.push({id:p.id, name:p.name, price:opts?.finalPrice||p.price, media:p.media, emoji:p.emoji, qty:1, opts});
-  renderCart();
-  openCart();
-}
-function changeQty(idx, delta){
-  cart[idx].qty += delta;
-  if(cart[idx].qty<=0) cart.splice(idx,1);
-  renderCart();
-}
-function removeItem(idx){ cart.splice(idx,1); renderCart(); }
-function toggleWish(id){
-  if(wishlist.has(id)) wishlist.delete(id); else wishlist.add(id);
-  document.getElementById('wishCount').textContent = wishlist.size;
-  renderBestSellers(); renderShop();
-}
-function renderCart(){
-  document.getElementById('cartCount').textContent = cart.reduce((s,c)=>s+c.qty,0);
-  const body = document.getElementById('cartBody');
-  if(!cart.length){
-    body.innerHTML = `<p style="text-align:center; color:var(--brown-soft); padding:40px 0;">Your cart is empty — go find something pretty 🌷</p>`;
-  } else {
-    body.innerHTML = cart.map((c,i)=>`
-      <div class="cart-item">
-        <div class="thumb ${c.media}" style="display:flex;align-items:center;justify-content:center;font-size:26px;">${c.emoji}</div>
-        <div class="cart-item-info">
-          <div class="cart-item-name">${c.name}</div>
-          <div class="cart-item-meta">${c.opts ? Object.values(c.opts).filter(v=>typeof v==='string').join(' · ') : money(c.price)+' each'}</div>
-          <div class="qty-row">
-            <button class="qty-btn" onclick="changeQty(${i},-1)">−</button>
-            <span>${c.qty}</span>
-            <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
-            <span class="remove-link" onclick="removeItem(${i})">Remove</span>
-          </div>
-        </div>
-      </div>`).join('');
-  }
-  const subtotal = cart.reduce((s,c)=>s+c.price*c.qty,0);
-  document.getElementById('cartSubtotal').textContent = money(subtotal);
-  document.getElementById('cartTotal').textContent = money(subtotal + (subtotal?49:0));
-  document.getElementById('cartDelivery').textContent = subtotal ? "₹49" : "₹0";
-}
-function openCart(){ document.getElementById('overlay').style.display='block'; document.getElementById('cartDrawer').classList.add('open'); }
-function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('overlay').style.display='none'; }
-function closeAllOverlays(){ closeCart(); closeModal(); }
-
-/* ================= PRODUCT MODAL ================= */
-function openProduct(id){
-  const p = PRODUCTS.find(x=>x.id===id);
-  const wrapOptions = ["Kraft","Pink Tissue","Cream Ribbon"];
-  document.getElementById('modalContent').innerHTML = `
-    <div class="modal-media ${p.media}" style="font-size:120px;">${p.emoji}</div>
-    <div class="modal-info">
-      <div style="font-weight:700; color:var(--coral-dark); font-size:12px; text-transform:uppercase; letter-spacing:.08em;">${p.cat}</div>
-      <h2 style="font-size:28px; margin:6px 0;">${p.name}</h2>
-      <div class="prod-rating">★ ${p.rating} <span>(${p.reviews} reviews)</span></div>
-      <p style="font-size:14px; color:var(--brown-soft); margin:12px 0;">${p.desc}. Hand-tied fresh, delivered same-day within city limits.</p>
-
-      <div class="opt-group">
-        <div class="opt-label">Wrapping Color</div>
-        <div class="opt-pills" id="m-wrap">${wrapOptions.map((w,i)=>`<button class="pill ${i===0?'active':''}" onclick="selectPill(this,'wrap')">${w}</button>`).join('')}</div>
-      </div>
-      <div class="opt-group">
-        <div class="opt-label">Add-ons</div>
-        <div class="opt-pills" id="m-addon">
-          <button class="pill" data-price="80" onclick="toggleAddon(this)">+ Chocolates ₹80</button>
-          <button class="pill" data-price="150" onclick="toggleAddon(this)">+ Teddy ₹150</button>
-          <button class="pill" data-price="40" onclick="toggleAddon(this)">+ Message Card ₹40</button>
-        </div>
-      </div>
-      <div class="qty-selector">
-        <div class="opt-label" style="margin:0;">Qty</div>
-        <button class="qty-btn" onclick="changeModalQty(-1)">−</button>
-        <span id="m-qty">1</span>
-        <button class="qty-btn" onclick="changeModalQty(1)">+</button>
-      </div>
-      <div class="final-price" id="m-final">${money(p.price)}</div>
-      <div class="modal-btns">
-        <button class="btn btn-secondary" style="flex:1; justify-content:center;" onclick="addModalToCart(${p.id})">Add to Cart</button>
-        <button class="btn btn-primary" style="flex:1; justify-content:center;" onclick="addModalToCart(${p.id}); openCart();">Buy Now</button>
-      </div>
-    </div>`;
-  window.currentModalProduct = p;
-  window.modalQty = 1;
-  window.modalAddons = [];
-  document.getElementById('modalOverlay').style.display='flex';
-}
-function selectPill(el, group){
-  el.parentElement.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
-  el.classList.add('active');
-  updateModalPrice();
-}
-function toggleAddon(el){ el.classList.toggle('active'); updateModalPrice(); }
-function changeModalQty(d){
-  window.modalQty = Math.max(1, window.modalQty+d);
-  document.getElementById('m-qty').textContent = window.modalQty;
-  updateModalPrice();
-}
-function updateModalPrice(){
-  const p = window.currentModalProduct;
-  let addonSum = 0;
-  document.querySelectorAll('#m-addon .pill.active').forEach(el=>addonSum+=Number(el.dataset.price));
-  const total = (p.price + addonSum) * window.modalQty;
-  document.getElementById('m-final').textContent = money(total);
-}
-function addModalToCart(id){
-  const p = PRODUCTS.find(x=>x.id===id);
-  const wrap = document.querySelector('#m-wrap .pill.active')?.textContent || "Kraft";
-  let addonSum=0, addons=[];
-  document.querySelectorAll('#m-addon .pill.active').forEach(el=>{addonSum+=Number(el.dataset.price); addons.push(el.textContent.trim());});
-  const finalPrice = p.price + addonSum;
-  for(let i=0;i<window.modalQty;i++) addToCart(id, {wrap, addons: addons.join(', ')||'None', finalPrice});
-  closeModal();
-}
-function closeModal(){ document.getElementById('modalOverlay').style.display='none'; }
-
-/* ================= BUILDER ================= */
-const builderState = {budget:null, flower:null, color:null, occasion:null};
-function pillGroup(containerId, options, key){
-  document.getElementById(containerId).innerHTML = options.map(o=>
-    `<button class="pill" onclick="setBuilder('${key}','${o}', this)">${o}</button>`
-  ).join('');
-}
-function setBuilder(key, val, el){
-  builderState[key]=val;
-  el.parentElement.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
-  el.classList.add('active');
-  updateBuilderSummary();
-}
-function updateBuilderSummary(){
-  const notes = document.getElementById('b-notes').value;
-  const s = builderState;
-  document.getElementById('builderSummary').innerHTML =
-    `<strong>Your request so far:</strong><br>
-     Budget: ${s.budget||'—'} · Flowers: ${s.flower||'—'} · Colors: ${s.color||'—'} · Occasion: ${s.occasion||'—'}
-     ${notes?`<br>Notes: "${notes}"`:''}`;
-}
-document.addEventListener('input', e=>{ if(e.target.id==='b-notes') updateBuilderSummary(); });
-function submitBuilder(){
-  if(!builderState.budget || !builderState.flower){
-    alert("Pick at least a budget and flower preference so our florists know where to start!");
-    return;
-  }
-  alert("🌸 Request received! Our florists will text you a mockup within a few hours.");
-}
-
-/* ================= INIT ================= */
-pillGroup('b-budget', ["₹199","₹299","₹499","₹699","Custom"], 'budget');
-pillGroup('b-flower', ["Roses","Lilies","Gerberas","Mixed","Surprise me"], 'flower');
-pillGroup('b-color', ["Red","Pink","White","Yellow","Mixed"], 'color');
-pillGroup('b-occasion', ["Birthday","Anniversary","Date","Friendship","Apology","Just Because","Other"], 'occasion');
-
-renderBestSellers();
-renderShop();
-renderCart();
 </script>
+
 </body>
 </html>
-
