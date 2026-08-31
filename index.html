@@ -3,483 +3,813 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ADC PL/SQL Practical Codes</title>
+<title>My Code Collection</title>
+
 <style>
-    * { box-sizing: border-box; }
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #0b1020;
-        color: #eef2ff;
-        line-height: 1.5;
-    }
-    header {
-        padding: 32px 20px 24px;
-        text-align: center;
-        background: linear-gradient(135deg, #151c35, #0f172a);
-        border-bottom: 1px solid #293453;
-    }
-    h1 { margin: 0 0 8px; font-size: 30px; }
-    header p { margin: 0; color: #aab5d6; }
-    .toolbar {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        padding: 14px 20px;
-        background: rgba(11,16,32,.95);
-        border-bottom: 1px solid #293453;
-        backdrop-filter: blur(10px);
-    }
-    .toolbar-inner {
-        max-width: 1100px;
-        margin: auto;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-    input {
-        flex: 1;
-        min-width: 220px;
-        padding: 12px 14px;
-        border: 1px solid #394666;
-        border-radius: 10px;
-        background: #121a2e;
-        color: white;
-        outline: none;
-    }
-    button {
-        border: 1px solid #394666;
-        background: #18223b;
-        color: #eef2ff;
-        padding: 10px 14px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: 600;
-    }
-    button:hover { background: #223052; }
-    main {
-        max-width: 1100px;
-        margin: 28px auto;
-        padding: 0 20px 50px;
-    }
-    .section-title {
-        margin: 30px 0 14px;
-        color: #b8c4e6;
-        font-size: 20px;
-    }
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 18px;
-    }
-    .card {
-        background: #121a2e;
-        border: 1px solid #293453;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0,0,0,.18);
-    }
-    .card-head {
-        padding: 17px 18px;
-        border-bottom: 1px solid #293453;
-    }
-    .num {
-        display: inline-block;
-        font-size: 12px;
-        color: #aeb9d8;
-        margin-bottom: 4px;
-    }
-    h2 { margin: 0; font-size: 18px; }
-    .formula {
-        margin-top: 8px;
-        color: #9fb0d9;
-        font-size: 13px;
-    }
-    pre {
-        margin: 0;
-        padding: 16px;
-        overflow-x: auto;
-        background: #080d19;
-        color: #e7ecff;
-        font-size: 13px;
-        line-height: 1.55;
-        white-space: pre;
-    }
-    .copy {
-        margin: 12px 16px 16px;
-        width: calc(100% - 32px);
-    }
-    .tip {
-        margin-top: 8px;
-        padding: 10px 14px;
-        color: #aeb9d8;
-        font-size: 13px;
-        border-top: 1px solid #293453;
-    }
-    .hidden { display: none; }
-    footer {
-        text-align: center;
-        padding: 30px 20px;
-        color: #7f8aaa;
-        border-top: 1px solid #293453;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#0f1117;
+color:white;
+padding:40px;
+}
+
+h1{
+text-align:center;
+margin-bottom:40px;
+font-size:40px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+gap:25px;
+}
+
+.card{
+background:#181c25;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+.header{
+background:#232938;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.header h2{
+font-size:20px;
+}
+
+button{
+background:#4cafef;
+border:none;
+color:white;
+padding:8px 18px;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#3298e6;
+}
+
+pre{
+padding:20px;
+overflow:auto;
+font-size:14px;
+line-height:1.6;
+background:#11151d;
+color:#7fffd4;
+}
+
+::-webkit-scrollbar{
+width:8px;
+height:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#555;
+border-radius:20px;
+}
 </style>
 </head>
+
 <body>
 
-<header>
-    <h1>ADC — PL/SQL Practical Codes</h1>
-    <p>Copy-paste-ready programs • 14 practicals</p>
-</header>
+<h1>💻 My Programming Codes</h1>
 
-<div class="toolbar">
-    <div class="toolbar-inner">
-        <input id="search" type="search" placeholder="Search practical, topic, IF, MOD, circle...">
-        <button onclick="showAll()">Show All</button>
-        <button onclick="copyAll()">Copy All Codes</button>
-    </div>
+<div class="container">
+
+<!-- Code 1 -->
+<div class="card">
+<div class="header">
+<h2>maximum and minimum</h2>
+<button onclick="copyCode('code1')">Copy</button>
+</div>
+<pre id="code1">
+<pre id="code1">
+n=int(input("enter the number of elements:"))
+if n&lt;=0:
+    print("please enter a positive number of elements")
+else:
+    A=[]
+    print("enter",n,"numbers:")
+    for i in range(n):
+        num=int(input())
+        A.append(num)
+
+    maximum=A[0]
+    minimum=A[0]
+
+    for i in range(1,n):
+        if A[i]&gt;maximum:
+            maximum=A[i]
+        if A[i]&lt;minimum:
+            minimum=A[i]
+
+    print("maximum number is:",maximum)
+    print("minimum number is:",minimum)
+</pre>
+</pre>
 </div>
 
-<main>
-    <h3 class="section-title">Practical Set 1 — Introduction to PL/SQL</h3>
-    <div class="grid">
+<!-- Code 2 -->
+<div class="card">
+<div class="header">
+<h2>average of numbers</h2>
+<button onclick="copyCode('code2')">Copy</button>
+</div>
+<pre id="code2">
+n=int(input("enter the number of elements:"))
+if n<=0:
+    print("please enter a positive number of elements")
+else:
+    arr=[]
+    sum=0
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 1</span>
-                <h2>Addition of Two Numbers</h2>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+    print("enter",n,"number:")
+    for i in range(n):
+        num=int(input())
+        arr.append(num)
+        sum=sum+num
 
-DECLARE
-    num1 INTEGER := 10;
-    num2 INTEGER := 5;
-    sum INTEGER;
-BEGIN
-    sum := num1 + num2;
+    average=sum/n
+    print("average of number is:",average)
+</pre>
+</div>
 
-    DBMS_OUTPUT.PUT_LINE('Addition of ' || num1 || ' and ' || num2 || ' is ' || sum);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+<!-- Code 3 -->
+<div class="card">
+<div class="header">
+<h2>addition of two matrix</h2>
+<button onclick="copyCode('code3')">Copy</button>
+</div>
+<pre id="code3">
+m=int(input("enter number of rows(m):"))
+n=int(input("enter number of columns(n):"))
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 2</span>
-                <h2>Area of Triangle</h2>
-                <div class="formula">Area = 0.5 × breadth × length</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+if m<=0 or n<=0:
+    print("please enter positive values for rows and columns")
+else:
+    matrix1=[]
+    matrix2=[]
+    result=[]
 
-DECLARE
-    breadth NUMBER := 3;
-    length NUMBER := 6;
-    area NUMBER;
-BEGIN
-    area := 0.5 * breadth * length;
+    print("enter elements of first matrix:")
 
-    DBMS_OUTPUT.PUT_LINE('Area of triangle = ' || area);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            element=int(input())
+            row.append(element)
+        matrix1.append(row)
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 3</span>
-                <h2>Area and Circumference of Circle</h2>
-                <div class="formula">Area = πr² • Circumference = 2πr</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+    print("enter elements of second matrix:")
 
-DECLARE
-    r NUMBER := 6;
-    pi NUMBER := 3.14;
-    area NUMBER;
-    circumference NUMBER;
-BEGIN
-    area := pi * r * r;
-    circumference := 2 * pi * r;
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            element=int(input())
+            row.append(element)
+        matrix2.append(row)
 
-    DBMS_OUTPUT.PUT_LINE('Area of circle = ' || area);
-    DBMS_OUTPUT.PUT_LINE('Circumference of circle = ' || circumference);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            row.append(matrix1[i][j]+matrix2[i][j])
+        result.append(row)
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 4</span>
-                <h2>Sum of Squares of Two Numbers</h2>
-                <div class="formula">a² + b²</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+    print("addition of two matrices is:")
 
-DECLARE
-    a INTEGER := 5;
-    b INTEGER := 3;
-    sum INTEGER;
-BEGIN
-    sum := (a * a) + (b * b);
+    for i in range(m):
+        for j in range(n):
+            print(result[i][j], end=" ")
+        print()
 
-    DBMS_OUTPUT.PUT_LINE('Sum of squares = ' || sum);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+</pre>
+</div>
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 5</span>
-                <h2>Volume of Cube</h2>
-                <div class="formula">Volume = side³</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+<!-- Code 4 -->
+<div class="card">
+<div class="header">
+<h2>transpose of matrix</h2>
+<button onclick="copyCode('code4')">Copy</button>
+</div>
+<pre id="code4">
+m=int(input("enter number of rows(m):"))
+n=int(input("enter number of columns(n):"))
 
-DECLARE
-    side INTEGER := 3;
-    volume INTEGER;
-BEGIN
-    volume := side * side * side;
+if m<=0 or n<=0:
+    print("please enter positive values for rows and columns")
+else:
+    matrix=[]
 
-    DBMS_OUTPUT.PUT_LINE('Volume of cube = ' || volume);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-            <div class="tip">Change only side INTEGER := 3; if a different side is given.</div>
-        </article>
+    print("enter matrix elements:")
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 6</span>
-                <h2>Area of Rectangle</h2>
-                <div class="formula">Area = length × width</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            element=int(input())
+            row.append(element)
+        matrix.append(row)
 
-DECLARE
-    length NUMBER := 5;
-    width NUMBER := 3;
-    area NUMBER;
-BEGIN
-    area := length * width;
+    print("original matrix:")
 
-    DBMS_OUTPUT.PUT_LINE('Area of rectangle = ' || area);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-            <div class="tip">Change the length and width values if needed.</div>
-        </article>
+    for i in range(m):
+        for j in range(n):
+            print(matrix[i][j], end=" ")
+        print()
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 7</span>
-                <h2>Average of Three Numbers</h2>
-                <div class="formula">Average = (a + b + c) / 3</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+    print("transpose of matrix:")
 
-DECLARE
-    a NUMBER := &amp;a;
-    b NUMBER := &amp;b;
-    c NUMBER := &amp;c;
-    average NUMBER;
-BEGIN
-    average := (a + b + c) / 3;
+    for j in range(n):
+        for i in range(m):
+            print(matrix[i][j], end=" ")
+        print()
 
-    DBMS_OUTPUT.PUT_LINE('Average of three numbers = ' || average);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+</pre>
+</div>
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 8</span>
-                <h2>Simple Interest</h2>
-                <div class="formula">SI = (P × N × R) / 100</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+<!-- Code 5 -->
+<div class="card">
+<div class="header">
+<h2>push,pop,display,quit</h2>
+<button onclick="copyCode('code5')">Copy</button>
+</div>
+<pre id="code5">
+maxsize=int(input("enter max size:"))
 
-DECLARE
-    P NUMBER := &amp;P;
-    N NUMBER := &amp;N;
-    R NUMBER := &amp;R;
-    SI NUMBER;
-BEGIN
-    SI := (P * N * R) / 100;
+if maxsize<=0:
+    print("please enter a positive value")
+else:
+    Stack=[]
 
-    DBMS_OUTPUT.PUT_LINE('Simple Interest = ' || SI);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+    def Push():
+        if len(Stack)>=maxsize:
+            print("stack overflow")
+        else:
+            x=int(input("enter element:"))
+            Stack.append(x)
+            print("element inserted")
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 9</span>
-                <h2>Print Name and Address</h2>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+    def Pop():
+        if len(Stack)==0:
+            print("stack underflow")
+        else:
+            x=Stack.pop()
+            print("element popped is",x)
 
-DECLARE
-    Name VARCHAR2(30) := '&amp;Name';
-    Address VARCHAR2(50) := '&amp;Address';
-BEGIN
-    DBMS_OUTPUT.PUT_LINE('Name is: ' || Name);
-    DBMS_OUTPUT.PUT_LINE('Address is: ' || Address);
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+    def Peek():
+        if len(Stack)==0:
+            print("empty stack")
+        else:
+            print("top element is",Stack[-1])
+
+    def Display():
+        if len(Stack)==0:
+            print("empty stack")
+        else:
+            print("stack elements are:")
+            for i in range(len(Stack)-1,-1,-1):
+                print(Stack[i])
+
+    while True:
+        print("\n--- Stack Menu ---")
+        print("1. Push")
+        print("2. Pop")
+        print("3. Peek")
+        print("4. Display")
+        print("5. Quit")
+
+        ch=int(input("enter choice:"))
+
+        if ch==1:
+            Push()
+        elif ch==2:
+            Pop()
+        elif ch==3:
+            Peek()
+        elif ch==4:
+            Display()
+        elif ch==5:
+            print("program exited")
+            break
+        else:
+            print("invalid choice")
+
+</pre>
+</div>
+
+<!-- Code 6 -->
+<div class="card">
+<div class="header">
+<h2>factorial of given number</h2>
+<button onclick="copyCode('code6')">Copy</button>
+</div>
+<pre id="code6">
+def factorial(n):
+    if n==1 or n==0:
+        return 1
+    else:
+        return n*factorial(n-1)
+
+num=int(input("enter a number:"))
+
+if num<0:
+    print("enter valid number")
+else:
+    print("factorial:",factorial(num))
+</pre>
+</div>
+
+<!-- Code 7 -->
+<div class="card">
+<div class="header">
+<h2>fibonnaci series</h2>
+<button onclick="copyCode('code7')">Copy</button>
+</div>
+<pre id="code7">
+def fibonacci(n):
+    if n<=1:
+        return n
+    else:
+        return fibonacci(n-1)+fibonacci(n-2)
+
+n=int(input("enter number of terms:"))
+
+if n<0:
+    print("enter positive number")
+elif n==0:
+    print("enter greater number than zero")
+else:
+    print("fibonacci series:")
+    for i in range(n):
+        print(fibonacci(i), end=" ")
+
+</pre>
+</div>
+
+<!-- Code 8 -->
+<div class="card">
+<div class="header">
+<h2>linear queue</h2>
+<button onclick="copyCode('code8')">Copy</button>
+</div>
+<pre id="code8">
+maxsize=int(input("enter queue size:"))
+
+if maxsize<=0:
+    print("invalid queue size")
+else:
+    q=[0]*maxsize
+    f=0
+    r=0
+
+    def insert():
+        global r
+        if r==maxsize:
+            print("queue full")
+        else:
+            x=int(input("enter element:"))
+            q[r]=x
+            r=r+1
+
+    def delete():
+        global f
+        if f==r:
+            print("queue empty")
+        else:
+            print("deleted element =",q[f])
+            f=f+1
+
+    def display():
+        if f==r:
+            print("queue empty")
+        else:
+            print("queue elements are:")
+            for i in range(f,r):
+                print(q[i],end=" ")
+            print()
+
+    while True:
+        print("\n1. Insert")
+        print("2. Delete")
+        print("3. Display")
+        print("4. Quit")
+
+        ch=int(input("enter choice:"))
+
+        if ch==1:
+            insert()
+        elif ch==2:
+            delete()
+        elif ch==3:
+            display()
+        elif ch==4:
+            print("program exited")
+            break
+        else:
+            print("invalid choice")
+
+</pre>
+</div>
+
+<!-- Code 9 -->
+<div class="card">
+<div class="header">
+<h2>circular queue</h2>
+<button onclick="copyCode('code9')">Copy</button>
+</div>
+<pre id="code9">
+maxsize=int(input("enter queue size:"))
+
+if maxsize<=0:
+    print("invalid queue size")
+else:
+    q=[0]*maxsize
+    f=-1
+    r=-1
+
+    def insert():
+        global f,r
+        if (r+1)%maxsize==f:
+            print("queue full")
+        else:
+            x=int(input("enter element:"))
+            if f==-1:
+                f=0
+                r=0
+            else:
+                r=(r+1)%maxsize
+            q[r]=x
+
+    def delete():
+        global f,r
+        if f==-1:
+            print("queue empty")
+        else:
+            print("deleted element =",q[f])
+            if f==r:
+                f=-1
+                r=-1
+            else:
+                f=(f+1)%maxsize
+
+    def display():
+        if f==-1:
+            print("queue empty")
+        else:
+            print("queue elements are:")
+            i=f
+            while True:
+                print(q[i],end=" ")
+                if i==r:
+                    break
+                i=(i+1)%maxsize
+            print()
+
+    while True:
+        print("\n1. Insert")
+        print("2. Delete")
+        print("3. Display")
+        print("4. Quit")
+
+        ch=int(input("enter choice:"))
+
+        if ch==1:
+            insert()
+        elif ch==2:
+            delete()
+        elif ch==3:
+            display()
+        elif ch==4:
+            print("program exited")
+            break
+        else:
+            print("invalid choice")
+
+</pre>
+</div>
+
+<!-- Code 10 -->
+<div class="card">
+<div class="header">
+<h2>Linked list prepend </h2>
+<button onclick="copyCode('code10')">Copy</button>
+</div>
+<pre id="code10">
+class linkedlist:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+head=None
+
+def prepend(element):
+    global head
+
+    newnode=linkedlist(element)
+
+    if head==None:
+        head=newnode
+    else:
+        newnode.next=head
+        head=newnode
+
+def del1():
+    global head
+
+    if head==None:
+        print("List Empty")
+    else:
+        temp=head
+        head=temp.next
+        temp.next=None
+        print("First Node Deleted")
+
+def display():
+    global head
+
+    if head==None:
+        print("List Empty")
+    else:
+        temp=head
+        while temp.next!=None:
+            print(temp.data,end=" -> ")
+            temp=temp.next
+        print(temp.data)
+
+while True:
+    print("\n1.Prepend")
+    print("2.Deletion of First Node")
+    print("3.Display")
+    print("4.Quit")
+
+    ch=int(input("Enter Choice : "))
+
+    if ch==1:
+        element=int(input("Enter element : "))
+        prepend(element)
+
+    elif ch==2:
+        del1()
+
+    elif ch==3:
+        display()
+
+    elif ch==4:
+        break
+
+    else:
+        print("Invalid Choice")
+</pre>
+</div>
+
+<!-- Code 11 -->
+<div class="card">
+    <div class="header">
+        <h2>doubly linked list</h2>
+        <button onclick="copyCode('code11')">Copy</button>
     </div>
 
-    <h3 class="section-title">Practical Set 2 — Conditional PL/SQL</h3>
-    <div class="grid">
+    <pre id="code11">class doubly:
+    def __init__(self, value):
+        self.data = value
+        self.next = None
+        self.prev = None
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 1</span>
-                <h2>Check Even or Odd</h2>
-                <div class="formula">MOD(num, 2) = 0 → even</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
 
-DECLARE
-    num INTEGER := &amp;num;
-BEGIN
-    IF MOD(num, 2) = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Number is even: ' || num);
-    ELSE
-        DBMS_OUTPUT.PUT_LINE('Number is odd: ' || num);
-    END IF;
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+head = None
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 2</span>
-                <h2>Discount Eligibility by Age</h2>
-                <div class="formula">Age ≤ 7 OR age ≥ 60 → 30% discount</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
 
-DECLARE
-    age NUMBER := &amp;age;
-BEGIN
-    IF age &lt;= 7 OR age &gt;= 60 THEN
-        DBMS_OUTPUT.PUT_LINE('You will have 30% discount');
-    ELSE
-        DBMS_OUTPUT.PUT_LINE('You are not eligible for discount');
-    END IF;
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+def insert():
+    global head
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 3</span>
-                <h2>Check for a Substring</h2>
-                <div class="formula">Uses LOWER() and LIKE</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+    value = int(input("Enter Value : "))
+    newnode = doubly(value)
 
-DECLARE
-    v_main_string VARCHAR2(200) := 'Diagnosis of thyroid disorder of Dolly Shah';
-    v_substring   VARCHAR2(50) := 'health';
-BEGIN
-    IF LOWER(v_main_string) LIKE '%' || LOWER(v_substring) || '%' THEN
-        DBMS_OUTPUT.PUT_LINE('Substring found');
-    ELSE
-        DBMS_OUTPUT.PUT_LINE('Substring not found');
-    END IF;
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-            <div class="tip">Change v_substring to the word you want to search for.</div>
-        </article>
+    if head == None:
+        head = newnode
+    else:
+        temp = head
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 4</span>
-                <h2>Check Multiple of 5</h2>
-                <div class="formula">MOD(num, 5) = 0</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+        while temp.next != None:
+            temp = temp.next
 
-DECLARE
-    num INTEGER := &amp;num;
-BEGIN
-    IF MOD(num, 5) = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Number is divisible by 5');
-    ELSE
-        DBMS_OUTPUT.PUT_LINE('Number is not divisible by 5');
-    END IF;
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+        temp.next = newnode
+        newnode.prev = temp
 
-        <article class="card">
-            <div class="card-head">
-                <span class="num">Practical 5</span>
-                <h2>Loan Eligibility by Income</h2>
-                <div class="formula">Income ≥ 100000 → eligible</div>
-            </div>
-            <pre>SET SERVEROUTPUT ON;
+    print("Node Inserted")
 
-DECLARE
-    income NUMBER := &amp;income;
-BEGIN
-    IF income &gt;= 100000 THEN
-        DBMS_OUTPUT.PUT_LINE('You are eligible for loan');
-    ELSE
-        DBMS_OUTPUT.PUT_LINE('You are not eligible for loan');
-    END IF;
-END;
-/</pre>
-            <button class="copy" onclick="copyCode(this)">Copy Code</button>
-        </article>
+
+def delete():
+    global head
+
+    if head == None:
+        print("List Underflow")
+    else:
+        temp = head
+        head = head.next
+
+        if head != None:
+            head.prev = None
+
+        temp.next = None
+
+        print("First Node Deleted")
+
+
+def display():
+    global head
+
+    temp = head
+
+    if temp == None:
+        print("List Empty")
+    else:
+        while temp.next != None:
+            print(temp.data, end=" &lt;-&gt; ")
+            temp = temp.next
+
+        print(temp.data)
+
+
+def displayR():
+    global head
+
+    temp = head
+
+    if temp == None:
+        print("List Empty")
+    else:
+        while temp.next != None:
+            temp = temp.next
+
+        while temp.prev != None:
+            print(temp.data, end=" &lt;-&gt; ")
+            temp = temp.prev
+
+        print(temp.data)
+
+
+def search():
+    global head
+
+    if head == None:
+        print("List Empty")
+        return
+
+    value = int(input("Enter Value to Search : "))
+
+    temp = head
+    pos = 1
+
+    while temp != None:
+        if temp.data == value:
+            print("Element Found at Position", pos)
+            return
+
+        temp = temp.next
+        pos += 1
+
+    print("Element Not Found")
+
+
+while True:
+    print("\n1.Insert")
+    print("2.Delete")
+    print("3.Display")
+    print("4.Display Reverse")
+    print("5.Search")
+    print("6.Quit")
+
+    ch = int(input("Enter Choice : "))
+
+    if ch == 1:
+        insert()
+
+    elif ch == 2:
+        delete()
+
+    elif ch == 3:
+        display()
+
+    elif ch == 4:
+        displayR()
+
+    elif ch == 5:
+        search()
+
+    elif ch == 6:
+        print("Program Terminated")
+        break
+
+    else:
+        print("Invalid Choice")</pre>
+</div>
+<!-- Code 12 -->
+<div class="card">
+    <div class="header">
+        <h2>stack linked list</h2>
+        <button onclick="copyCode('code12')">Copy</button>
     </div>
-</main>
 
-<footer>
-    ADC Exam Revision • PL/SQL • Copy-paste ready
-</footer>
+    <pre id="code12">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
+
+class Stack:
+    def __init__(self):
+        self.top = None
+
+    def push(self, data):
+        new_node = Node(data)
+        new_node.next = self.top
+        self.top = new_node
+        print(data, "pushed into stack")
+
+    def pop(self):
+        if self.top is None:
+            print("Stack Underflow")
+            return
+
+        temp = self.top
+        self.top = self.top.next
+        print("Popped element:", temp.data)
+
+    def peek(self):
+        if self.top is None:
+            print("Stack is empty")
+        else:
+            print("Top element:", self.top.data)
+
+    def display(self):
+        if self.top is None:
+            print("Stack is empty")
+            return
+
+        temp = self.top
+        print("Stack elements:")
+
+        while temp:
+            print(temp.data, end=" ")
+            temp = temp.next
+
+        print()
+
+
+stack = Stack()
+
+while True:
+    print("\n1. Push")
+    print("2. Pop")
+    print("3. Peek")
+    print("4. Display")
+    print("5. Quit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        data = int(input("Enter element: "))
+        stack.push(data)
+
+    elif choice == 2:
+        stack.pop()
+
+    elif choice == 3:
+        stack.peek()
+
+    elif choice == 4:
+        stack.display()
+
+    elif choice == 5:
+        print("Program terminated.")
+        break
+
+    else:
+        print("Invalid choice")</pre>
+</div>
 <script>
-function copyCode(button) {
-    const pre = button.parentElement.querySelector('pre');
-    navigator.clipboard.writeText(pre.innerText).then(() => {
-        const old = button.innerText;
-        button.innerText = 'Copied!';
-        setTimeout(() => button.innerText = old, 1200);
-    });
+function copyCode(id){
+let text=document.getElementById(id).innerText;
+navigator.clipboard.writeText(text);
+alert("Copied!");
 }
-
-function copyAll() {
-    const codes = [...document.querySelectorAll('pre')].map((pre, i) =>
-        '--- PRACTICAL ' + (i + 1) + ' ---\\n' + pre.innerText
-    ).join('\\n\\n');
-    navigator.clipboard.writeText(codes).then(() => alert('All 14 codes copied!'));
-}
-
-function showAll() {
-    document.getElementById('search').value = '';
-    document.querySelectorAll('.card').forEach(card => card.classList.remove('hidden'));
-}
-
-document.getElementById('search').addEventListener('input', function() {
-    const q = this.value.toLowerCase().trim();
-    document.querySelectorAll('.card').forEach(card => {
-        card.classList.toggle('hidden', q && !card.innerText.toLowerCase().includes(q));
-    });
-});
 </script>
 
 </body>
