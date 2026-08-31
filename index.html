@@ -804,6 +804,217 @@ while True:
     else:
         print("Invalid choice")</pre>
 </div>
+<!-- Assignment 9 -->
+<div class="card">
+<div class="header">
+<h2>Assignment 9 - Adjacency Matrix</h2>
+<button onclick="copyCode('code9')">Copy</button>
+</div>
+<pre id="code9">graph_type = input(&quot;Enter graph type (D for Directed, U for Undirected): &quot;).upper()
+
+if graph_type not in (&quot;U&quot;, &quot;D&quot;):
+    print(&quot;Invalid graph type&quot;)
+    exit()
+else:
+    print(f&quot;valid graph type entered : {graph_type}&quot;)
+
+vertices = int(input(&quot;Enter number of vertices: &quot;))
+
+if vertices &lt;= 0:
+    print(&quot;Please enter a positive number.&quot;)
+    exit()
+
+edges = int(input(&quot;Enter number of edges: &quot;))
+
+if edges &lt; 0:
+    print(&quot;Please enter a positive number.&quot;)
+    exit()
+
+matrix = []
+
+for i in range(vertices):
+    row = []
+    for j in range(vertices):
+        row.append(0)
+    matrix.append(row)
+
+print(&quot;\nEnter edges (Example: 1 5)&quot;)
+
+for i in range(edges):
+    u, v = map(int, input(f&quot;Edge {i+1}: &quot;).split())
+
+    if u &lt;= 0 or v &lt;= 0:
+        print(&quot;Please enter a positive number.&quot;)
+        exit()
+
+    if u &gt; vertices or v &gt; vertices:
+        print(&quot;Invalid vertex number.&quot;)
+        exit()
+
+    u -= 1
+    v -= 1
+
+    matrix[u][v] += 1
+
+    if graph_type == &quot;U&quot;:
+        matrix[v][u] += 1
+
+print(&quot;\nAdjacency Matrix:&quot;)
+
+for row in matrix:
+    for value in row:
+        print(value, end=&quot; &quot;)
+    print()</pre>
+</div>
+
+<!-- Assignment 10 -->
+<div class="card">
+<div class="header">
+<h2>Assignment 10 - Binary Search Tree</h2>
+<button onclick="copyCode('code10')">Copy</button>
+</div>
+<pre id="code10">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, data):
+        if self.root is None:
+            self.root = Node(data)
+            print(f&quot;{data} inserted as root.&quot;)
+        else:
+            self._insert(self.root, data)
+
+    def _insert(self, current, data):
+        if data == current.data:
+            print(f&quot;Data {data} already exists. Duplicate not allowed!!&quot;)
+            return
+
+        elif data &lt; current.data:
+            if current.left is None:
+                current.left = Node(data)
+                print(f&quot;{data} inserted on the left of {current.data}.&quot;)
+            else:
+                self._insert(current.left, data)
+
+        else:
+            if current.right is None:
+                current.right = Node(data)
+                print(f&quot;{data} inserted on the right of {current.data}.&quot;)
+            else:
+                self._insert(current.right, data)
+
+    def search(self, data):
+        return self._search(self.root, data, None)
+
+    def _search(self, current, data, parent):
+        if current is None:
+            return None
+
+        if current.data == data:
+            if parent is None:
+                return f&quot;{data} found at root.&quot;
+            elif parent.left == current:
+                return f&quot;{data} found left of {parent.data}.&quot;
+            else:
+                return f&quot;{data} found right of {parent.data}.&quot;
+
+        elif data &lt; current.data:
+            return self._search(current.left, data, current)
+
+        else:
+            return self._search(current.right, data, current)
+
+    def inorder(self, node):
+        if node:
+            self.inorder(node.left)
+            print(node.data, end=&quot; &quot;)
+            self.inorder(node.right)
+
+    def preorder(self, node):
+        if node:
+            print(node.data, end=&quot; &quot;)
+            self.preorder(node.left)
+            self.preorder(node.right)
+
+    def postorder(self, node):
+        if node:
+            self.postorder(node.left)
+            self.postorder(node.right)
+            print(node.data, end=&quot; &quot;)
+
+
+def menu():
+    bst = BST()
+
+    while True:
+        print(&quot;\n======== Binary Search Tree Menu ========&quot;)
+        print(&quot;1. Insert&quot;)
+        print(&quot;2. Search&quot;)
+        print(&quot;3. Traverse&quot;)
+        print(&quot;4. Quit&quot;)
+
+        choice = input(&quot;Enter your choice: &quot;)
+
+        if choice == &quot;1&quot;:
+            try:
+                data = int(input(&quot;Enter value to insert: &quot;))
+                bst.insert(data)
+            except ValueError:
+                print(&quot;Invalid input. Please enter an integer.&quot;)
+
+        elif choice == &quot;2&quot;:
+            if bst.root is None:
+                print(&quot;The tree is empty. Insert values first!&quot;)
+                continue
+
+            try:
+                data = int(input(&quot;Enter value to search: &quot;))
+                result = bst.search(data)
+
+                if result:
+                    print(result)
+                else:
+                    print(f&quot;{data} not found in the BST.&quot;)
+
+            except ValueError:
+                print(&quot;Invalid input. Please enter an integer.&quot;)
+
+        elif choice == &quot;3&quot;:
+            if bst.root is None:
+                print(&quot;The tree is empty. Insert values first!!&quot;)
+                continue
+
+            print(&quot;\nInorder Traversal: &quot;, end=&quot;&quot;)
+            bst.inorder(bst.root)
+            print()
+
+            print(&quot;Preorder Traversal: &quot;, end=&quot;&quot;)
+            bst.preorder(bst.root)
+            print()
+
+            print(&quot;Postorder Traversal: &quot;, end=&quot;&quot;)
+            bst.postorder(bst.root)
+            print()
+
+        elif choice == &quot;4&quot;:
+            print(&quot;Exiting Program!&quot;)
+            break
+
+        else:
+            print(&quot;Invalid choice. Please try again.&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    menu()</pre>
+</div>
+
 <script>
 function copyCode(id){
 let text=document.getElementById(id).innerText;
