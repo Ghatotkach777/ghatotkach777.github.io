@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PL/SQL Code Library</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <button id="menuBtn" class="icon-btn" aria-label="Open menu">☰</button>
+  <div class="brand">
+    <h1>PL/SQL Code Library</h1>
+    <p>SYBSc Computer Science | Practical Exam Code Collection</p>
+  </div>
+  <div class="searchwrap">
+    <input id="search" type="search" autocomplete="off" spellcheck="false"
+      placeholder="Search: 1.1, Practical 5, leap year, cursor, %ROWTYPE, SELECT INTO…" aria-label="Search codes">
+    <button id="clearBtn" class="clear" aria-label="Clear search" hidden>✕</button>
+    <div id="results" class="results" hidden></div>
+  </div>
+</header>
+
+<div id="overlay" class="overlay"></div>
+<aside id="side" class="side">
+  <nav id="nav"></nav>
+  <div class="recent">
+    <h4>Recently viewed</h4>
+    <div id="recent"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="toolbar">
+    <span id="counter" class="counter"></span>
+    <div class="tb-btns">
+      <button id="showAll" class="btn">Show all codes</button>
+      <button id="expAll" class="btn">Expand all</button>
+      <button id="colAll" class="btn">Collapse all</button>
+    </div>
+  </div>
+  <div id="list"></div>
+  <div id="empty" class="empty" hidden>
+    <p>No matching codes found</p>
+    <span>Try a question number like 4.3, a title, or a keyword such as cursor or salary.</span>
+  </div>
+</main>
+
+<button id="topBtn" class="topbtn" aria-label="Back to top" hidden>↑</button>
+<div id="toast" class="toast">Code copied successfully!</div>
+<script src="script.js"></script>
+</body>
+</html>
